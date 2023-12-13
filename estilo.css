@@ -9,8 +9,8 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background-color:  #b98464;
-    ;
+      background: url(/imagenes/paintedwood.jpg);
+    
 }
 /* *********** */
 /* ENCABEZADO - MENU */
@@ -18,14 +18,37 @@ body{
 .contenedor-header{
     width: 100%;
     position: fixed;
-    background-color: #706338;
+    
     z-index: 80;
     padding: 0 20px;
 }
+.a 
+{
+  font-size: 78px;
+}
+.alert{
+  width: 100%;
+  background: green;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  display: none;
+}
+.contact_form
+
+.logo {
+  background-image: url('/BodaPagina/imagenes/brew.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-left: 110px; 
+}
+
 
 .contenedor-header h1{
-    color: #fefefe;
-    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     font-size: 60px;
 }
@@ -39,22 +62,19 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    color: #b98464;
+    color: #3e0002;;
 }
 
 
 .txt3{
-    color: #b98464;
-    
-    font-style: italic;
-    font-family: 'Dancing Script', cursive;
+    color: black;
+    font-family: Arial, sans-serif;
     font-size: 40px;
 }
 .txt2{
-    color: whitesmoke
-    ;
-    font-style: italic;
-    font-family: 'Dancing Script', cursive;
+
+    color: black;
+    font-family: Arial, sans-serif;
     font-size: 50px;
 }
 
@@ -63,12 +83,13 @@ body{
 .contenedor-header header nav a{
     display: inline-block;
     text-decoration: none;
-    color: whitesmoke;
+    color: #3e0002;
     padding: 13px;
+    font-family: Arial, sans-serif;
     text-transform: uppercase;
 }
 .contenedor-header header nav a:hover{
-    color: #b98464
+    color: white
     ;
 }
 
@@ -141,7 +162,7 @@ body{
 
 .section-card span {
     display: block;
-    background-color: #b98464;
+    background-color: #3e0002;
     color: #ffffff;
     border-radius: 50%;
     width: 40px;
@@ -153,7 +174,7 @@ body{
 
 .section-card h2 {
     font-size: 24px;
-    color: #b98464;
+    color: #3e0002;
     margin-bottom: 10px;
 }
 
@@ -167,7 +188,7 @@ body{
     display: inline-block;
     text-transform: capitalize;
     background-color: whitesmoke;
-    color: whitesmoke;
+    color: #3e0002;
     padding: 8px 20px;
     border-radius: 25px;
     font-weight: 500;
@@ -177,7 +198,7 @@ body{
 
 .section-card a:hover {
     background-color: whitesmoke;
-    color: #b98464;
+    color: #3e0002;
 }
 .container{
     max-width: 1170px;
@@ -191,7 +212,7 @@ body{
     list-style: none;
   }
   .footer{
-    background-color: #24262b;
+    background-color: black;
       padding: 70px 0;
   }
   .footer-col{
@@ -211,7 +232,7 @@ body{
     position: absolute;
     left:0;
     bottom: -10px;
-    background-color: #b98464;
+    background-color: #3e0002;
     height: 2px;
     box-sizing: border-box;
     width: 50px;
@@ -230,14 +251,14 @@ body{
     transition: all 0.3s ease;
   }
   .footer-col ul li a:hover{
-    color: #ffffff;
+    color: #3e0002;
     padding-left: 8px;
   }
   .footer-col .social-links a{
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color:#b98464;
+    background-color:#3e0002;
     margin:0 10px 10px 0;
     text-align: center;
     line-height: 40px;
@@ -246,7 +267,7 @@ body{
     transition: all 0.5s ease;
   }
   .footer-col .social-links a:hover{
-    color: #24262b;
+    color: #3e0002;
     background-color: #ffffff;
   }
   
@@ -270,7 +291,7 @@ body{
     border-radius: 5px;  
     border-style: solid; 
     border-width: 1px; 
-    border-color:  #b98464; 
+    border-color:  #3e0002; 
     margin-top: 10px;  
     padding-left: 10px;
     margin-bottom: 20px; 
@@ -305,8 +326,8 @@ body{
     margin-bottom: 20px; 
     margin-top: 10px;   
     text-transform: uppercase;
-    background-color:  #b98464; 
-    border-color:  #b98464; 
+    background-color:  #3e0002; 
+    border-color:  #3e0002; 
     border-style: solid; 
     border-radius: 10px;  
     width: 420px;   
@@ -345,12 +366,12 @@ body{
   
   .formulario input:focus{
     outline:0;
-    border: 1px solid  #b98464;
+    border: 1px solid  #3e0002;
   }
   
   
   .formulario textarea:focus{
     outline:0;
-    border: 1px solid  #b98464;
+    border: 1px solid  #3e0002;
   }
   
