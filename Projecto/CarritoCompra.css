@@ -1,10 +1,11 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+*{
     margin: 0;
     padding: 0;
-    background-color: #000;
-  }
-  
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+body {
   /* Estilos para el primer header */
   header {
     background-color:#776B4A;

@@ -1,27 +1,26 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+*{
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
 }
-
 header {
     background-color: #706338;
     padding: 40px;
     text-align: center;
 }
-
 .button-container {
     display: flex;
     align-items: center;
     justify-content: center; /* Centra horizontalmente */
 }
-
 header a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
 }
-
 .button {
     color: #ffffff;
     border: none;
@@ -32,19 +31,16 @@ header a {
     text-align: center;
     display: inline-block;
 }
-
 .black-background {
     background-color: black;
     text-align: center;
     padding: 20px;
 }
-
 .beer-text {
     color: white;
     font-size: 24px;
     margin: 0;
 }
-
 .header-line {
     border: 1px solid #706338; /* Línea delgada del color del encabezado */
     width: 80%; /* Ajusta el ancho según sea necesario */
@@ -64,7 +60,6 @@ select {
     background-color: #706338;
     color: white;
 }
-
 .product-panel {
     background-color: #3e0002;
     display: flex;
@@ -79,24 +74,20 @@ select {
     margin-right: 20px;
     border-radius: 5px;
 }
-
 .product-details {
     display: flex;
     flex-direction: column; /* Cambia la dirección del flex container a columna */
     align-items: flex-start; /* Alinea los elementos a la izquierda */
     flex: 1; /* Asegura que el contenido se expanda */
 }
-
 .product-details h2 {
     color: white;
     margin: 0;
 }
-
 .product-details p {
     color: white;
     margin: 0; /* Ajusta el margen de los párrafos */
 }
-
 .price-container {
     display: flex;
     justify-content: space-between; /* Espaciado uniforme entre los elementos internos */
@@ -104,8 +95,6 @@ select {
     align-items: flex-start; /* Alinea los elementos en la parte superior */
     margin-top: 10px; /* Ajusta la distancia entre la descripción y el precio */
 }
-
-
 .price {
     font-size: 40px; /* Ajusta el tamaño del precio según sea necesario */
 }
@@ -116,14 +105,12 @@ select {
     margin-top: 10px; /* Ajusta la distancia entre el precio y el carrito */
     width: 100%; /* Ocupa todo el ancho disponible */
 }
-
 .cart-counter {
     background-color: white;
     border-radius: 50%;
     padding: 5px 10px;
     margin-left: 10px; /* Agrega un pequeño margen entre el precio y el contador */
 }
-
 .add-to-cart-button {
     background-color: #ffffff;
     color: #3e0002; /* Cambia el color del texto a #3e0002 */
@@ -137,14 +124,11 @@ select {
     display: flex;
     margin-top: 10px;
 }
-
 .star {
     color: #000; /* Color de la estrella (negro) */
     font-size: 25px; /* Ajusta el tamaño de la estrella */
     margin-right: 5px; /* Espacio entre las estrellas */
 }
-
-
 .star-empty {
     color: #000000; /* Color de la estrella vacía */
     font-size: 25px; /* Ajusta el tamaño de la estrella vacía */
