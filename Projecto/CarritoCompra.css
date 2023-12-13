@@ -60,130 +60,128 @@ body {
     background-color: black;
     text-align: center;
     padding: 20px;
-}
+    }
 
-.beer-text {
-    color: white;
-    font-size: 24px;
-    margin: 0;
-}
+    .beer-text {
+        color: white;
+        font-size: 24px;
+        margin: 0;
+    }
 
-.header-line {
-    border: 1px solid #706338; /* Línea delgada del color del encabezado */
-    width: 80%; /* Ajusta el ancho según sea necesario */
-    margin: 20px auto; /* Centra la línea horizontalmente y agrega espacio arriba y abajo */
-}
+    .header-line {
+        border: 1px solid #706338; /* Línea delgada del color del encabezado */
+        width: 80%; /* Ajusta el ancho según sea necesario */
+        margin: 20px auto; /* Centra la línea horizontalmente y agrega espacio arriba y abajo */
+    }
 
-.dropdown-panel {
-    margin-top: 20px;
-    display: inline-block; /* Muestra los paneles desplegables en línea */
-    margin-right: 10px; /* Ajusta el espacio entre cada panel desplegable */
-}
+    .dropdown-panel {
+        margin-top: 20px;
+        display: inline-block; /* Muestra los paneles desplegables en línea */
+        margin-right: 10px; /* Ajusta el espacio entre cada panel desplegable */
+    }
 
-select {
-    padding: 5px;
-    border: 1px solid #706338;
-    border-radius: 10px; /* Ajusta el radio para hacer los bordes más redondeados */
-    background-color: #706338;
-    color: white;
-}
+    select {
+        padding: 5px;
+        border: 1px solid #706338;
+        border-radius: 10px; /* Ajusta el radio para hacer los bordes más redondeados */
+        background-color: #706338;
+        color: white;
+    }
 
-.product-panel {
-    background-color: #3e0002;
-    display: flex;
-    align-items: center;
-    padding: 20px 5%; /* Cambia el relleno para adaptarse al ancho de la página */
-    margin-top: 20px;
-    border-radius: 10px;
-}
+    .product-panel {
+        background-color: #3e0002;
+        display: flex;
+        align-items: center;
+        padding: 20px 5%; /* Cambia el relleno para adaptarse al ancho de la página */
+        margin-top: 20px;
+        border-radius: 10px;
+    }
 
-.product-image {
-    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
-    margin-right: 20px;
-    border-radius: 5px;
-}
+    .product-image {
+        width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+        margin-right: 20px;
+        border-radius: 5px;
+    }
 
-.product-details {
-    display: flex;
-    flex-direction: column; /* Cambia la dirección del flex container a columna */
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
-    flex: 1; /* Asegura que el contenido se expanda */
-}
+    .product-details {
+        display: flex;
+        flex-direction: column; /* Cambia la dirección del flex container a columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        flex: 1; /* Asegura que el contenido se expanda */
+    }
 
-.product-details h2 {
-    color: white;
-    margin: 0;
-}
+    .product-details h2 {
+        color: white;
+        margin: 0;
+    }
 
-.product-details p {
-    color: white;
-    margin: 0; /* Ajusta el margen de los párrafos */
-}
+    .product-details p {
+        color: white;
+        margin: 0; /* Ajusta el margen de los párrafos */
+    }
 
-.price-container {
-    display: flex;
-    justify-content: space-between; /* Espaciado uniforme entre los elementos internos */
-    width: 100%; /* Ocupa todo el ancho disponible */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
-    margin-top: 10px; /* Ajusta la distancia entre la descripción y el precio */
-}
-
-
-.price {
-    font-size: 40px; /* Ajusta el tamaño del precio según sea necesario */
-}
-.cart-container {
-    display: flex;
-    justify-content: flex-end; /* Alinea los elementos al extremo derecho */
-    align-items: center;
-    margin-top: 10px; /* Ajusta la distancia entre el precio y el carrito */
-    width: 100%; /* Ocupa todo el ancho disponible */
-}
-
-.cart-counter {
-    background-color: white;
-    border-radius: 50%;
-    padding: 5px 10px;
-    margin-left: 10px; /* Agrega un pequeño margen entre el precio y el contador */
-}
-
-.add-to-cart-button {
-    background-color: #ffffff;
-    color: #3e0002; /* Cambia el color del texto a #3e0002 */
-    border: none;
-    padding: 8px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-.rating {
-    display: flex;
-    margin-top: 10px;
-}
+    .price-container {
+        display: flex;
+        justify-content: space-between; /* Espaciado uniforme entre los elementos internos */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        align-items: flex-start; /* Alinea los elementos en la parte superior */
+        margin-top: 10px; /* Ajusta la distancia entre la descripción y el precio */
+    }
 
 
-.star {
-    color: #000; /* Color de la estrella (negro) */
-    font-size: 25px; /* Ajusta el tamaño de la estrella */
-    margin-right: 5px; /* Espacio entre las estrellas */
-}
+    .price {
+        font-size: 40px; /* Ajusta el tamaño del precio según sea necesario */
+    }
+    .cart-container {
+        display: flex;
+        justify-content: flex-end; /* Alinea los elementos al extremo derecho */
+        align-items: center;
+        margin-top: 10px; /* Ajusta la distancia entre el precio y el carrito */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .cart-counter {
+        background-color: white;
+        border-radius: 50%;
+        padding: 5px 10px;
+        margin-left: 10px; /* Agrega un pequeño margen entre el precio y el contador */
+    }
+
+    .add-to-cart-button {
+        background-color: #ffffff;
+        color: #3e0002; /* Cambia el color del texto a #3e0002 */
+        border: none;
+        padding: 8px 15px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .rating {
+        display: flex;
+        margin-top: 10px;
+    }
 
 
-.star-empty {
-    color: #000000; /* Color de la estrella vacía */
-    font-size: 25px; /* Ajusta el tamaño de la estrella vacía */
-    margin-right: 5px; /* Espacio entre las estrellas */
-}
-.rating-number {
-    font-size: 30px; /* Tamaño del número de clasificación */
-    margin-right: 5px; /* Espacio entre el número y las estrellas */
-    color: #ffffff;
-}
-.reviews {
-    font-size: 20px; /* Tamaño del texto de las reseñas */
-    color: #888; /* Color del texto de las reseñas */
-    margin-top: 5px; /* Espacio entre las estrellas y las reseñas */
-}
+    .star {
+        color: #000; /* Color de la estrella (negro) */
+        font-size: 25px; /* Ajusta el tamaño de la estrella */
+        margin-right: 5px; /* Espacio entre las estrellas */
+    }
 
 
-  
+    .star-empty {
+        color: #000000; /* Color de la estrella vacía */
+        font-size: 25px; /* Ajusta el tamaño de la estrella vacía */
+        margin-right: 5px; /* Espacio entre las estrellas */
+    }
+    .rating-number {
+        font-size: 30px; /* Tamaño del número de clasificación */
+        margin-right: 5px; /* Espacio entre el número y las estrellas */
+        color: #ffffff;
+    }
+    .reviews {
+        font-size: 20px; /* Tamaño del texto de las reseñas */
+        color: #888; /* Color del texto de las reseñas */
+        margin-top: 5px; /* Espacio entre las estrellas y las reseñas */
+    }
+}
