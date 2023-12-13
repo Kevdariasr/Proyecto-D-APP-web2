@@ -180,6 +180,10 @@ body{
     background-color: whitesmoke;
     color: #3e0002;
 }
+
+/* *********** */
+/* company / follows */
+/* *********** */
 .container{
     max-width: 1170px;
     margin:auto;
@@ -250,7 +254,9 @@ body{
     color: #3e0002;
     background-color: #ffffff;
   }
-  
+  /* *********** */
+/* foro de contacto */
+/* *********** */
   
   .contact_form{  
     width: 460px; 
@@ -341,8 +347,6 @@ body{
     outline:0;
     border: 1px solid  #3e0002;
   }
-  /* *********** */
-/* Carrito */
-/* *********** */
+  
 
   
