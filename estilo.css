@@ -65,7 +65,6 @@ body{
     color: #3e0002;;
 }
 
-
 .txt3{
     color: black;
     font-family: Arial, sans-serif;
@@ -77,9 +76,6 @@ body{
     font-family: Arial, sans-serif;
     font-size: 50px; 
 }
-
-
-
 .contenedor-header header nav a{
     display: inline-block;
     text-decoration: none;
@@ -93,10 +89,8 @@ body{
     ;
 }
 
-
 /* SECCIÓN INICIO */
 /* *********** */
-
 .carousel-item img {
     width: 100%;
     height: auto;
@@ -107,31 +101,26 @@ body{
     ;
     
 }
-
 .carousel-inner img{
 
     width: 100%;
     height: auto;
 }
-
 .container {
     max-width: 900px;
     padding: 0 15px;
     margin: auto;
 }
-
 .section {
     padding: 80px 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
 }
-
 .section-cards {
     display: flex;
     justify-content: space-between;
 }
-
 .section-card {
     background-color: #ffffff;
     border-radius: 10px;
@@ -142,15 +131,12 @@ body{
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     width: 31%;
 }
-
 .section-card:hover {
     transform: translateY(-10px);
    
     cursor: pointer;
 }
-
 .hola
-
 {
     color: whitesmoke
     ;
@@ -158,8 +144,6 @@ body{
     
     font-size: 50px; 
 }
-
-
 .section-card span {
     display: block;
     background-color: #3e0002;
@@ -171,19 +155,16 @@ body{
     font-size: 24px;
     margin: 0 auto 15px;
 }
-
 .section-card h2 {
     font-size: 24px;
     color: #3e0002;
     margin-bottom: 10px;
 }
-
 .section-card p {
     color: black;
     line-height: 1.5;
     margin-bottom: 20px;
 }
-
 .section-card a {
     display: inline-block;
     text-transform: capitalize;
@@ -195,7 +176,6 @@ body{
     text-decoration: none;
     transition: background-color 0.3 ease-in-out;
 }
-
 .section-card a:hover {
     background-color: whitesmoke;
     color: #3e0002;
@@ -282,8 +262,6 @@ body{
     background-color: #fbfbfb; 
     padding-left: 30px; 
   }
-  
-  
   input{
     background-color: #fbfbfb; 
     width: 408px; 
@@ -338,40 +316,33 @@ body{
   button p{
     color: #fff; 
   }
-  
-  
-  
   .aviso{
     font-size: 13px;  
     color: #0e0e0e;  
   }
-  
-
-  
   p{
     font-size: 14px; 
     color: #0e0e0e; 
   }
   
-  
   ::-webkit-input-placeholder {
    color: #a8a8a8;
   }
-  
   
   ::-webkit-textarea-placeholder {
    color: #a8a8a8;
   }
   
-  
   .formulario input:focus{
     outline:0;
     border: 1px solid  #3e0002;
   }
-  
-  
   .formulario textarea:focus{
     outline:0;
     border: 1px solid  #3e0002;
   }
+  /* *********** */
+/* Carrito */
+/* *********** */
+
   
