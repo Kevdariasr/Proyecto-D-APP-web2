@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CarritoCompra.css">
+  <script src="Carrito.js" defer></script>
+  <title>Carrito de Compras</title>
+  
+</head>
+<body>
+
+  <header>
+   <div class="header-img">
+    <img src="images/brewtopiaclean.png" alt="logo" class="logo">
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Information</a>
+        <a href="#">Sign In</a>
+        <a href="#">Contact</a>
+        <a href="#">Support</a>
+        <img src="images/carrito.png" alt="carritoCompras">
+      </nav>
+
+
+
+</header>
+
+
+  <div class="black-background">
+    <p class="beer-text">Productos</p>
+    <hr class="header-line">
+    
+    <div class="dropdown-panel">
+        <select id="type" name="type">
+            <option value="ipa">IPA</option>
+            <option value="stout">Stout</option>
+            <option value="pale-ale">Pale Ale</option>   
+        </select>
+    </div>
+    <div class="dropdown-panel">
+      <select id="region" name="region">
+          <option value="north">North</option>
+          <option value="south">South</option>
+          <option value="east">East</option>  
+      </select>
+  </div>
+
+  <div class="dropdown-panel">
+      <select id="price" name="price">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+      </select>
+  </div>
+
+  <div class="dropdown-panel">
+      <select id="rating" name="rating">
+          <option value="1">1 star</option>
+          <option value="2">2 stars</option>
+          <option value="3">3 stars</option>
+          <option value="3">4 stars</option>
+          <option value="3">5 stars</option>
+      </select>
+  </div>
+ 
+ 
+  <div class="dropdown-panel">
+    <select id="viewSelector" name="view">
+        <option value="wine">Vinos</option>
+        <option value="beer">Cervezas</option>
+    </select>
+  </div>
+</div>
+
+<div class="product-panel" id="wineView">
+  <img src="images/wine.jpg" alt="Botella de Heineken" class="product-image">
+  <div class="product-details">
+      <h2>Faust Cabernet Sauvignon</h2>
+      <div class="price-container">
+          <p class="description">Eleva tu juego de regalos con la presentación perfecta. Haga una impresión inolvidable mostrando este excepcional Cabernet Sauvignon en nuestra opulenta y reluciente caja</p>
+          <p class="price">$74</p>
+      </div>
+      <div class="rating">
+          <span class="rating-number">4</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star">&#9733;</span>
+          <span class="star-empty">&#9734;</span>
+          <p class="reviews">(22 reviews)</p>
+      </div>
+      
+      <div class="cart-container">
+          <span class="cart-counter">1</span>
+          <button class="add-to-cart-button">Agregar al Carrito</button>
+      </div>
+  </div>
+</div>
+
+<div class="product-panel" id="beerView" style="display: none;">
+    <img src="images/heineken.jpg" alt="Botella de Heineken" class="product-image">
+    <div class="product-details">
+        <h2>Heineken</h2>
+        <div class="price-container">
+            <p class="description">Cerveza Lager premium elaborada con los mejores ingredientes, un equilibrio perfecto entre amargor y frescura. Disfruta de su sabor único y refrescante.</p>
+            <p class="price">$3</p>
+        </div>
+        <div class="rating">
+            <span class="rating-number">3</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star-empty">&#9734;</span>
+            <span class="star-empty">&#9734;</span>
+            <p class="reviews">(12 reviews)</p>
+        </div>
+        
+        <div class="cart-container">
+            <span class="cart-counter">1</span>
+            <button class="add-to-cart-button">Agregar al Carrito</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+  
+
+
+</body>
+</html>
+

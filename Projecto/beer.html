@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Página Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="button-container">
+            <a href="#" class="button">Home</a>
+            <a href="#" class="button">Information</a>
+            <a href="#" class="button">Sign In</a>
+            <a href="#" class="button">Contact Support</a>
+        </div>
+    </header>
+
+    <div class="black-background">
+        <p class="beer-text">Beer</p>
+        <hr class="header-line">
+        
+        <div class="dropdown-panel">
+            <select id="type" name="type">
+                <option value="ipa">IPA</option>
+                <option value="stout">Stout</option>
+                <option value="pale-ale">Pale Ale</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+        </div>
+
+        <div class="dropdown-panel">
+            <select id="region" name="region">
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+        </div>
+
+        <div class="dropdown-panel">
+            <select id="price" name="price">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+        </div>
+
+        <div class="dropdown-panel">
+            <select id="rating" name="rating">
+                <option value="1">1 star</option>
+                <option value="2">2 stars</option>
+                <option value="3">3 stars</option>
+                <option value="3">4 stars</option>
+                <option value="3">5 stars</option>
+                <!-- Agrega más opciones según sea necesario -->
+            </select>
+        </div>
+    </div>
+
+    <div class="product-panel">
+        <img src="images/heineken.jpg" alt="Botella de Heineken" class="product-image">
+        <div class="product-details">
+            <h2>Heineken</h2>
+            <div class="price-container">
+                <p class="description">Cerveza Lager premium elaborada con los mejores ingredientes, un equilibrio perfecto entre amargor y frescura. Disfruta de su sabor único y refrescante.</p>
+                <p class="price">$3</p>
+            </div>
+            <div class="rating">
+                <span class="rating-number">3</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star-empty">&#9734;</span>
+                <span class="star-empty">&#9734;</span>
+                <p class="reviews">(12 reviews)</p>
+            </div>
+            
+            <div class="cart-container">
+                <span class="cart-counter">1</span>
+                <button class="add-to-cart-button">Agregar al Carrito</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+
+</body>
+</html>
