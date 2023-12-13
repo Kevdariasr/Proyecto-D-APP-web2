@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow';
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color:  #b98464;
+    ;
+}
+/* *********** */
+/* ENCABEZADO - MENU */
+/* *********** */
+.contenedor-header{
+    width: 100%;
+    position: fixed;
+    background-color: #706338;
+    z-index: 80;
+    padding: 0 20px;
+}
+
+.contenedor-header h1{
+    color: #fefefe;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+
+.contenedor-header header{
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    color: #b98464;
+}
+
+
+.txt3{
+    color: #b98464;
+    
+    font-style: italic;
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+}
+.txt2{
+    color: whitesmoke
+    ;
+    font-style: italic;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+}
+
+
+
+.contenedor-header header nav a{
+    display: inline-block;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 13px;
+    text-transform: uppercase;
+}
+.contenedor-header header nav a:hover{
+    color: #b98464
+    ;
+}
+
+
+/* SECCIÓN INICIO */
+/* *********** */
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+
+.carousel-inner h1{
+    color: whitesmoke
+    ;
+    
+}
+
+.carousel-inner img{
+
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 900px;
+    padding: 0 15px;
+    margin: auto;
+}
+
+.section {
+    padding: 80px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.section-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    width: 31%;
+}
+
+.section-card:hover {
+    transform: translateY(-10px);
+   
+    cursor: pointer;
+}
+
+.hola
+
+{
+    color: whitesmoke
+    ;
+    font-style: italic;
+    
+    font-size: 50px; 
+}
+
+
+.section-card span {
+    display: block;
+    background-color: #b98464;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    margin: 0 auto 15px;
+}
+
+.section-card h2 {
+    font-size: 24px;
+    color: #b98464;
+    margin-bottom: 10px;
+}
+
+.section-card p {
+    color: black;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.section-card a {
+    display: inline-block;
+    text-transform: capitalize;
+    background-color: whitesmoke;
+    color: whitesmoke;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3 ease-in-out;
+}
+
+.section-card a:hover {
+    background-color: whitesmoke;
+    color: #b98464;
+}
+.container{
+    max-width: 1170px;
+    margin:auto;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  ul{
+    list-style: none;
+  }
+  .footer{
+    background-color: #24262b;
+      padding: 70px 0;
+  }
+  .footer-col{
+     width: 25%;
+     padding: 0 15px;
+  }
+  .footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+  }
+  .footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #b98464;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+  }
+  .footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+  }
+  .footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+  }
+  .footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color:#b98464;
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+  }
+  .footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+  }
+  
+  
+  .contact_form{  
+    width: 460px; 
+    height: auto;
+    margin: 80px auto;
+    border-radius: 10px;  
+    padding-top: 30px;
+    padding-bottom: 20px;  
+    background-color: #fbfbfb; 
+    padding-left: 30px; 
+  }
+  
+  
+  input{
+    background-color: #fbfbfb; 
+    width: 408px; 
+    height: 40px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color:  #b98464; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+  }
+  
+  
+  textarea{
+    background-color: #fbfbfb; 
+    width: 405px; 
+    height: 150px; 
+    border-radius: 5px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color:  #b98464; 
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+    padding-top: 15px; 
+  }
+  
+  
+  label{
+    display: block; 
+    float: center;  
+  }
+  
+  
+  button{
+    height: 45px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    text-transform: uppercase;
+    background-color:  #b98464; 
+    border-color:  #b98464; 
+    border-style: solid; 
+    border-radius: 10px;  
+    width: 420px;   
+    cursor: pointer;
+  }
+  
+  
+  button p{
+    color: #fff; 
+  }
+  
+  
+  
+  .aviso{
+    font-size: 13px;  
+    color: #0e0e0e;  
+  }
+  
+
+  
+  p{
+    font-size: 14px; 
+    color: #0e0e0e; 
+  }
+  
+  
+  ::-webkit-input-placeholder {
+   color: #a8a8a8;
+  }
+  
+  
+  ::-webkit-textarea-placeholder {
+   color: #a8a8a8;
+  }
+  
+  
+  .formulario input:focus{
+    outline:0;
+    border: 1px solid  #b98464;
+  }
+  
+  
+  .formulario textarea:focus{
+    outline:0;
+    border: 1px solid  #b98464;
+  }
+  
