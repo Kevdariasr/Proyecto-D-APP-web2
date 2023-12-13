@@ -39,7 +39,7 @@ body{
 .contact_form
 
 .logo {
-  background-image: url('/BodaPagina/imagenes/brew.jpg');
+  background-image: url('/imagenes/brew.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   padding-left: 110px; 
@@ -75,7 +75,7 @@ body{
 
     color: black;
     font-family: Arial, sans-serif;
-    font-size: 50px;
+    font-size: 50px; 
 }
 
 
