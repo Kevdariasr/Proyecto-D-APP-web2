@@ -24,6 +24,15 @@ function submitForm(e) {
   var phone = getElementVal("phone");
   var msgContent = getElementVal("msgContent");
   
+  //verifica los datos que son enviados a firebase
+  console.log("Datos a enviar a Firebase:", {
+    name: name,
+    emailid: emailid,
+    phone: phone,
+    msgContent: msgContent,
+  });
+
+
   saveMessages(name, emailid, phone, msgContent);
 
   //   enable alert
@@ -47,6 +56,7 @@ const saveMessages = (name, emailid, phone, msgContent) => {
     phone : phone,
     msgContent: msgContent,
   });
+
 };
 
 const getElementVal = (id) => {
