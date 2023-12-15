@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Administración</title>
+    <link rel="stylesheet" type="text/css" href="adminPanel.css">
+</head>
+<body>
+
+    <div class="dashboard-main-wrapper">
+        <!-- Navbar lateral -->
+        <nav class="sidebar-nav">
+            <!-- Logo y perfil de usuario -->
+            <div class="sidebar-header">
+                <h1>Panel de administracion</h1>>
+                <div class="user-profile">
+                    <!-- Aquí iría la foto y nombre del usuario -->
+                </div>
+            </div>
+            <!-- Menú de navegación -->
+            <ul class="sidebar-menu">
+                <li><a href="javascript:void(0);" onclick="openPanel('Clientes')">Administrar Clientes</a></li>
+                <li><a href="javascript:void(0);" onclick="openPanel('Inventario')">Administrar Inventario</a></li>
+                <li><a href="javascript:void(0);" onclick="openPanel('pedidos')">Administrar Pedidos</a></li>
+                <li><a href="javascript:void(0);" onclick="openPanel('administradores')">Administradores</a></li>
+                <li><a href="javascript:void(0);" onclick="logout()">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenido principal -->
+        <div class="main-container">
+            <!-- Paneles de contenido -->
+                                        <!-- Zona de Clientes-->
+            <div id="Clientes" class="panel-content">
+                <h2>Registro de Clientes</h2>
+    <form id="registroClientes">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="Telefono">Telefono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="direccion">Direccion:</label>
+        <input type="text" id="address" name="address" required>
+
+        <button type="submit">Enviar Datos</button>
+    </form>
+    <div class="Clientes-lista">
+        <h2>Listado de Clientes</h2>
+        <table class="table-lista">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>telefono</th>
+                    <th>Rol</th>
+                    <th>Direccion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí van los registros de Clientes cargados desde la base de datos -->
+                <!-- Ejemplo de un registro de Cliente -->
+                <tr>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>1241241</td>
+                    <td>juan.perez@example.com</td>
+                    <td>cliente</td>
+                    <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                    <td>
+                        <button class="btn btn-eliminar">Eliminar</button>
+                        <button class="btn btn-actualizar">Actualizar</button>
+                        <button class="btn btn-banear">Banear</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+            </div>
+                                     <!-- Zona de Inventario -->
+            <div id="Inventario" class="panel-content" style="display: none;">
+                <h2>Registro de Inventario</h2>
+    <form id="registroInventario">
+        <label for="nombre">Nombre del producto:</label>
+        <input type="text" id="nombreProducto" name="nombre" required>
+
+        <label for="descripcion">descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion" required>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="text" id="cantidad" name="cantidad" required>
+
+        <label for="categoria">Categoria:</label>
+        <select id="categoria" name="categoria" required></select>
+
+        <label for="imagenProducto">Imagen del producto:</label>
+        <input type="file" id="imagenProducto" name="imagenProducto" accept="image/*" required>
+
+        <label for="Precio">Precio:</label>
+        <input type="text" id="Precio" name="Precio" min="0" required>
+
+        <button type="submit">Enviar Datos</button>
+    </form>
+    <div class="inventario-lista">
+        <h2>Lista de Productos</h2>
+        <table class="table-lista">
+            <thead>
+                <tr>
+                    <th>Nombre del producto</th>
+                    <th>descripcion</th>
+                    <th>Cantidad</th>
+                    <th>Categoria</th>
+                    <th>Imagen del producto</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ejemplo de un registro de inventario -->
+                <tr>
+                    <td>Heineken</td>
+                    <td>quis nostrud lex ea commodo consequat.</td>
+                    <td>34</td>
+                    <td>Cerveza</td>
+                    <td><img style="height: 200px;" src="imagenes/heineken3.jpg"></td>
+                    <td>9$</td>
+                    <td>
+                        <button class="btn btn-eliminar">Eliminar</button>
+                        <button class="btn btn-actualizar">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+            </div>
+                                    <!-- Zona de Admin -->
+            <div id="administradores" class="panel-content" style="display: none;">
+                <h2>Registro de Administradores</h2>
+                <form id="registroAdministradores" class="form-registro">
+                    <div class="form-group">
+                        <label for="nombreAdmin">Nombre:</label>
+                        <input type="text" id="nombreAdmin" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apellidoAdmin">Apellido:</label>
+                        <input type="text" id="apellidoAdmin" name="apellido" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="emailAdmin">Email:</label>
+                        <input type="email" id="emailAdmin" name="email" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="passwordAdmin">Password:</label>
+                        <input type="password" id="passwordAdmin" name="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-enviar">Enviar Datos</button>
+                </form>
+                <div class="administradores-lista">
+                    <h2>Lista de Administradores</h2>
+                    <table class="table-lista">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ejemplo de un registro de administrador -->
+                            <tr>
+                                <td>Juan</td>
+                                <td>Pérez</td>
+                                <td>juan.perez@example.com</td>
+                                <td>
+                                    <button class="btn btn-eliminar">Eliminar</button>
+                                    <button class="btn btn-actualizar">Actualizar</button>
+                                    <button class="btn btn-banear">Banear</button>
+                                </td>
+                            </tr>
+                            <!-- Repetir filas como esta para cada administrador -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>         
+            <div id="pedidos" class="panel-content" style="display: none;">
+                <h2>pedidos</h2>
+    <form id="registroInventario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="apellido">apellido:</label>
+        <input type="text" id="apellido" name="apellido" required>
+
+        <label for="fecha">fecha del pedido:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="categoria">estado:</label>
+        <select id="categoria" name="categoria" required></select>
+
+        <label for="idProducto">id el producto:</label>
+        <input type="text" id="idProducto" name="idProducto" required>
+
+        <label for="nombreProducto">Nombre del producto:</label>
+        <input type="text" id="nombreProducto" name="nombreProducto" required>
+
+        <label for="direccionPedido">direccion del pedido:</label>
+        <input type="text" id="direccionPedido" name="direccionPedido" required>
+
+        <label for="Descuento">Descuento:</label>
+        <input type="text" id="Descuento" name="Descuento" min="0" required>
+
+        <label for="Total">Total:</label>
+        <input type="text" id="Total" name="Total" min="0" required>
+
+        <button type="submit">Actualizar Datos</button>
+    </form>
+    <div class="pedido-lista">
+        <h2>Lista de pedidos</h2>
+        <table class="table-lista">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha del pedido</th>
+                    <th>Estado</th>
+                    <th>Id del prodcuto</th>
+                    <th>Nombre del producto</th>
+                    <th>direccion del pedido</th>
+                    <th>descuento</th>
+                    <th>total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Ejemplo de un registro de inventario -->
+                <tr>
+                    <td>Juan</td>
+                    <td>Perez</td>
+                    <td>12/02/2023</td>
+                    <td>en proceso</td>
+                    <td>235235265236</td>
+                    <td>Heineken</td>
+                    <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
+                    <td>$0</td>
+                    <td>$9</td>
+                    <td>
+                        <button class="btn btn-eliminar">Eliminar</button>
+                        <button class="btn btn-actualizar">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="../javascript/adminPanel.js"></script>
+</body>
+</html>

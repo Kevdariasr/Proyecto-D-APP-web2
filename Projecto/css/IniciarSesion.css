@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;400;600;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+  }
+  
+  body {
+    background-image: url('../images/fondo2.0.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+  }
+  header {
+    background-color: #706338;
+    padding: 40px;
+    text-align: center;
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+  }
+
+.login-container {
+    width: 400px; 
+    height: 450px;
+    padding: 40px;
+    margin: auto;
+    background: rgba(104, 5, 5, 0.7);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: white;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.input-group input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #706338;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.help-links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.help-links a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #706338;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: white;
+}

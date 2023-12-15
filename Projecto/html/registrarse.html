@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BREWTOPIA - Registro</title>
+    <link rel="stylesheet" href="../css/registrarse.css">
+</head>
+<body>
+
+    <header>
+        <div class="button-container">
+            <a href="index.html">Inicio</a>
+            <a href="index.html">Información</a>
+            <a href="IniciarSesion.html">Iniciar Sesión</a>
+            <a href="#">Contactos</a>
+            <a href="index.html">Soporte</a>
+        </div>
+    </header>
+
+    <!-- formulario de registro -->
+    <div class="main">
+        <section class="registration-container">
+            <h2>Registro</h2>
+            <form id="registration-form" method="post">
+                <div class="input-group">
+                    <label for="nombreCliente">Nombre</label>
+                    <input type="text" id="nombreCliente" name="nombreCliente" required>
+                </div>
+                <div class="input-group">
+                    <label for="apellidoCliente">Apellido</label>
+                    <input type="text" id="apellidoCliente" name="apellidoCliente" required>
+                </div>
+                <div class="input-group">
+                    <label for="telefonoCliente">Teléfono</label>
+                    <input type="tel" id="telefonoCliente" name="telefonoCliente" required pattern="[0-9]{8}" maxlength="8" title="El teléfono debe tener 8 dígitos numéricos." >
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" id="contraseña" name="contraseña" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmar-contraseña">confirmar Contraseña</label>
+                    <input type="password" id="confirmar-contraseña" name="confirmar-contraseña" required>
+                </div>
+                <div class="input-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                <div class="input-group">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 BREWTOPIA. Todos los derechos reservados.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../db.js"></script>
+    <script src="../javascript/registro.js"></script>
+</body>
+</html>
