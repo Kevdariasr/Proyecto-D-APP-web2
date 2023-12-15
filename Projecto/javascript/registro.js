@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
   
-        // Obtiene los valores del formulario pd: el trim elimina los espacios en blanco
+        // Obtiene los valores del formulario
         var nombreCliente = document.getElementById('nombreCliente').value.trim();
         var apellidoCliente = document.getElementById('apellidoCliente').value.trim();
         var telefonoCliente = document.getElementById('telefonoCliente').value.trim();
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var direccion = document.getElementById('direccion').value.trim();
   
         // Validaciones
-        if (!nombreCliente || !apellidoCliente || !telefonoCliente || !email || !contraseña || !confirmarContraseña || !direccion) {
+         if (!nombreCliente || !apellidoCliente || !telefonoCliente || !email || !contraseña || !confirmarContraseña || !direccion) {
             alert('Por favor, completa todos los campos.');
             return;
         }
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('El número de teléfono debe contener 8 dígitos numéricos.');
             return;
         }
-  
-        // Registra el usuario en Firebase Authentication primero para poder despues iniciar sesion
+
+        // Registra el usuario en Firebase Authentication primero
         firebase.auth().createUserWithEmailAndPassword(email, contraseña)
         .then((userCredential) => {
             const uid = userCredential.user.uid;
@@ -38,9 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 apellido: apellidoCliente,
                 telefono: telefonoCliente,
                 email: email,
-                contraseña: contraseña,
                 direccion: direccion,
-                rol: 'client'
+                rol: 'admin'
             });
         })
         .then(() => {
@@ -52,5 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Ocurrió un error al registrar el usuario: ${error.message}`);
         });
     });
-  });
-  
+});
