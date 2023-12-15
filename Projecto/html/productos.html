@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CarritoCompra.css">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Productos</title>
+    <style>
+        body {text-align: center;}
+ 
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="header-img">
+         <img src="images/brewtopiaclean.png" alt="logo" class="logo">
+         </div>
+     
+         <nav>
+             <a href="/index.html">Inicio</a>
+           </nav>
+    </header>
+
+    <div class="black-background">
+        <p class="beer-text"> Mantenimiento Productos</p>
+        <hr class="header-line">
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+
+            <!-- DETALLE -->
+            <div class="col-4">
+
+                <form id="frm" >
+                    <div class="form-group">
+                        <input type="text" id="txtTipoBebida" placeholder="Tipo Bebida 'Cerveza o Vino'" class="form-control" pattern="Cerveza|Vino" title="Ingrese'Cerveza' o 'Vino'" required>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" placeholder="Nombre" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="txtDescripcion" placeholder="Descripción" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="txtPrecio" placeholder="Precio" class="form-control" pattern="[0-9]+" title="Ingrese un número" required>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <input type="file" id="fileImagen" class="form-control" required>
+                    </div>
+                    
+                    
+                    <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-success">Limpiar</button>
+                </form>
+            </div>
+            
+            <!-- RESUMEN -->
+            <div class="col-8">
+                <table id="tblDatos" class="table table-striped mt-3 border">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Imagen</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/productos.js"></script>
+
+</body>
+</html>
