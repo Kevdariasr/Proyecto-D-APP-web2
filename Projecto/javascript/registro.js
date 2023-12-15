@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 telefono: telefonoCliente,
                 email: email,
                 direccion: direccion,
-                rol: 'admin'
+                rol: 'client'
             });
         })
         .then(() => {
