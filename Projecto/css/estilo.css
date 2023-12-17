@@ -9,7 +9,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
-      background: url(/imagenes/paintedwood.jpg);
+      background: url(../images/paintedwood.jpg);
     
 }
 /* *********** */
