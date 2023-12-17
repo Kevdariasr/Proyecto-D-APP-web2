@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/CarritoCompra.css">
+    <title>Productos</title>
+    <style>
+        body {text-align: center;}
+ 
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="header-img">
+         <img src="../images/brewtopiaclean.png" alt="logo" class="logo">
+         </div>
+     
+         <nav>
+             <a href="index.html">Inicio</a>
+           </nav>
+    </header>
+
+    <div class="black-background">
+        <p class="beer-text"> Mantenimiento Usuarios</p>
+        <hr class="header-line">
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <!-- DETALLE -->
+            <div class="col-4"><br>
+   
+                <form id="frm">
+                    <div class="form-group">
+                        <input type="text" id="txtNombre" placeholder="Nombre" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="txtApellidos" placeholder="Apellidos" class="form-control" required>
+                    </div>
+                    
+                    <input type="text" id="txtEmail" placeholder="Email" class="form-control" title="Ingrese un correo electrónico válido" required>
+
+
+                    <div class="form-group">
+                        <input type="text" id="txtTelefono" placeholder="Telefono" class="form-control" pattern="[0-9]+" title="Ingrese un número" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="txtRole" placeholder="Role" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="txtDireccion" placeholder="Direccion" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="txtPassword" placeholder="Contraseña" class="form-control" pattern="[a-zA-Z0-9]{8}" title="Ingrese una contraseña alfanumérica de 8 dígitos" required>
+                    </div>
+
+                    <br>
+                    <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-success">Limpiar</button>
+                </form>
+            </div>
+            
+            <!-- RESUMEN -->
+            <div class="col-8">
+                <table id="tblDatos" class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Role</th>
+                            <th>Dirección</th>
+                            <th>Contraseña</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="../javascript/firebase-config.js"></script>
+    <script src="../javascript/usuario.js"></script>
+
+
+</body>
+</html>

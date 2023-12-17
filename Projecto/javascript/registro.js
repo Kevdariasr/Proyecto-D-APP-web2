@@ -9,17 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
         var apellidoCliente = document.getElementById('apellidoCliente').value.trim();
         var telefonoCliente = document.getElementById('telefonoCliente').value.trim();
         var email = document.getElementById('email').value.trim();
-        var contraseña = document.getElementById('contraseña').value;
-        var confirmarContraseña = document.getElementById('confirmar-contraseña').value;
+        var password = document.getElementById('contraseña').value;
+        var confirmpassword = document.getElementById('confirmar-contraseña').value;
         var direccion = document.getElementById('direccion').value.trim();
   
         // Validaciones
-         if (!nombreCliente || !apellidoCliente || !telefonoCliente || !email || !contraseña || !confirmarContraseña || !direccion) {
+        if (!nombreCliente || !apellidoCliente || !telefonoCliente || !email || !password || !confirmpassword || !direccion) {
             alert('Por favor, completa todos los campos.');
             return;
         }
   
-        if (contraseña !== confirmarContraseña) {
+        if (password !== confirmpassword) {
             alert('Las contraseñas no coinciden.');
             return;
         }
@@ -29,17 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Registra el usuario en Firebase Authentication primero
-        firebase.auth().createUserWithEmailAndPassword(email, contraseña)
+        // Registra el usuario en Firebase Authentication
+        firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            const uid = userCredential.user.uid;
-            return firebase.firestore().collection("usuarios").doc(uid).set({
+            // Una vez registrado, guarda la información del usuario en Firestore
+            return firebase.firestore().collection("Usuario").doc(userCredential.user.uid).set({
                 nombre: nombreCliente,
-                apellido: apellidoCliente,
+                apellidos: apellidoCliente,
                 telefono: telefonoCliente,
                 email: email,
                 direccion: direccion,
-                rol: 'cliente'
+                password: password,
+                role: 'cliente',
+                uid: userCredential.user.uid
             });
         })
         .then(() => {

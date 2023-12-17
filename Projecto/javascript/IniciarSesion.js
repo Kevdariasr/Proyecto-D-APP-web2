@@ -8,18 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('password').value;
 
         firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            const uid = userCredential.user.uid;
-            return firebase.firestore().collection('usuarios').doc(uid).get();
+        .then(() => {
+            // Buscar el usuario por email
+            return firebase.firestore().collection('Usuario').where('email', '==', email).get();
         })
-        .then((doc) => {
-            if (doc.exists) {
-                const userData = doc.data();
-                // verificacion del rol
-                if (userData.rol === 'admin') {
-                    window.location.href = '../html/adminPanel.html'; 
-                } else if (userData.rol === 'cliente') {
-                    window.location.href = '/paginaCliente.html'; // aqui deben meter la pagina del home de clientes
+        .then((querySnapshot) => {
+            if (!querySnapshot.empty) {
+                const userData = querySnapshot.docs[0].data();
+                if (userData.role === 'admin') {
+                    window.location.href = '../html/adminPanel.html';
+                } else if (userData.role === 'cliente') {
+                    window.location.href = '/paginaCliente.html'; 
                 } else {
                     throw new Error('Rol no reconocido');
                 }
@@ -33,3 +32,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
