@@ -44,7 +44,9 @@ window.addEventListener("load",async()=>{
                                         <td>${dato.nombre}</td>
                                         <td>${dato.descripcion}</td>
                                         <td>${dato.precio}</td>
-                                        <td>${dato.imagen}</td>
+                                        <td><img src="${dato.imagenURL}" style="max-width: 100px; max-height: 80px;" alt="Imagen"></td>
+
+                                        
                                         <td class="text-center">
                                         <button class="btn btn-secondary btn-editar" data-id="${doc.id}">Editar</button>
                                         <button class="btn btn-danger btn-borrar" data-id="${doc.id}">Borrar</button>
@@ -94,13 +96,43 @@ window.addEventListener("load",async()=>{
 frm.addEventListener("submit",async(event) =>{
     event.preventDefault();
     
+
+
+//FIREBASE STORAGE
+
+// Crear una referencia al almacenamiento
+//var storageRef = firebase.storage().ref();
+
+// Obtener el archivo
+const fileInput = document.getElementById('txtImagen');
+    const file = fileInput.files[0];
+
+// Crear una referencia al archivo que se va a subir
+const storageRef = firebase.storage().ref(`images/${file.name}`);
+
+// Subir la imagen
+const task = storageRef.put(file);
+
+task.then(snapshot => {
+    snapshot.ref.getDownloadURL().then(url => {
+        uploadedImage.src = url;
+    });
+});
+
+
+
+
+
+
+
+
     //CREAR OBJETO A INSERTAR
     const productoTO = {
         tipobebida : frm.txtTipoBebida.value,
         nombre : frm.txtNombre.value,
         descripcion : frm.txtDescripcion.value,
         precio : frm.txtPrecio.value,
-        imagen : frm.txtImagen.value
+       
     }
 
     if (editStatus){
@@ -110,6 +142,18 @@ frm.addEventListener("submit",async(event) =>{
         await onInsert(productoTO);
     }
     limpiar();
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });
@@ -123,3 +167,7 @@ function limpiar(){
     idSeleccionado = "";
 
 }
+
+
+
+
