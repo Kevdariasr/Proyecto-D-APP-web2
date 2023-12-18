@@ -4,49 +4,45 @@
 
 "use strict"
 
-// 1. CREAR OBJETO DE BASE DATOS
-const db = firebase.firestore();
-
 // 2. CREAR OBJETOS HTML
-const coleccionStr = "Productos";
+const coleccionStr2 = "Productos";
 
-const frm = document.querySelector("#frm");
-const dataTable = document.querySelector("#tblDatos > tbody")
+const frm2 = document.querySelector("#frm2");
+const dataTable2 = document.querySelector("#tblDatos2 > tbody")
 var editStatus = false; 
 var idSeleccionado = "";
 
 // 3.CARGAR LOS APIS DE FIRESTORE PARA CRUD
 
-const findAll = () => db.collection(coleccionStr).get();
+const findAll2 = () => db.collection(coleccionStr2).get();
 
-const findById = paramId => db.collection(coleccionStr).doc(paramId).get();
+const findById2 = paramId => db.collection(coleccionStr2).doc(paramId).get();
 
-const onFindAll = callback => db.collection(coleccionStr).onSnapshot(callback);
+const onfindAll2 = callback => db.collection(coleccionStr2).onSnapshot(callback);
 
-const onInsert = newObj => db.collection(coleccionStr).doc().set(newObj);
+const onInsert2 = newObj => db.collection(coleccionStr2).doc().set(newObj);
 
-const onUpdate = (paramId, newObj) => db.collection(coleccionStr).doc(paramId).update(newObj);
+const onUpdate2 = (paramId, newObj) => db.collection(coleccionStr2).doc(paramId).update(newObj);
 
-const onDelete = paramId => db.collection(coleccionStr).doc(paramId).delete();
+const onDelete2 = paramId => db.collection(coleccionStr2).doc(paramId).delete();
 
 // 4. CREACION DE CRUD
 window.addEventListener("load",async()=>{
-    onFindAll((query)=>{
+    onfindAll2((query)=>{
         
-        dataTable.innerHTML = "";
+        dataTable2.innerHTML = "";
         
         query.forEach((doc)=>{
             let dato =  doc.data();
 
-            dataTable.innerHTML += `
+            dataTable2.innerHTML += `
                                     <tr>
                                         <td>${dato.tipobebida}</td>
                                         <td>${dato.nombre}</td>
                                         <td>${dato.descripcion}</td>
-                                        <td>${dato.precio}</td>
+                                        <td>${dato.cantidad}</td>
                                         <td><img src="${dato.imagenURL}" style="max-width: 100px; max-height: 80px;" alt="Imagen"></td>
-
-                                        
+                                        <td>${dato.precio}</td>
                                         <td class="text-center">
                                         <button class="btn btn-secondary btn-editar" data-id="${doc.id}">Editar</button>
                                         <button class="btn btn-danger btn-borrar" data-id="${doc.id}">Borrar</button>
@@ -60,7 +56,7 @@ window.addEventListener("load",async()=>{
     btnBorrar.forEach ((btn)=>{
         btn.addEventListener("click", async(event)=>{
             if(confirm("Desea eliminar el registro?")){
-                await onDelete(event.target.dataset.id);
+                await onDelete2(event.target.dataset.id);
             }
             
         });
@@ -69,31 +65,32 @@ window.addEventListener("load",async()=>{
     const btnEditar= document.querySelectorAll(".btn-editar");    
     btnEditar.forEach ((btn)=>{
         btn.addEventListener("click", async(event)=>{
-            const docSelecccionado = await findById(event.target.dataset.id);
-            const productoSeleccionado = docSelecccionado.data();
+            const docSeleccionado = await findById2(event.target.dataset.id);
+        const productoSeleccionado = docSeleccionado.data();
             
-            frm.txtTipoBebida.value = productoSeleccionado.tipobebida;
-            frm.txtNombre.value = productoSeleccionado.nombre;
-            frm.txtDescripcion.value = productoSeleccionado.descripcion;
-            frm.txtPrecio.value = productoSeleccionado.precio;
-            frm.txtImagen.value = productoSeleccionado.imagen;
-            frm.btnGuardar.innerHTML = "Modificar";
+            frm2.txtTipoBebida.value = productoSeleccionado.tipobebida;
+            frm2.txtNombre.value = productoSeleccionado.nombre;
+            frm2.txtDescripcion.value = productoSeleccionado.descripcion;
+            frm2.txtCantidad.value = productoSeleccionado.cantidad;
+            frm2.txtPrecio.value = productoSeleccionado.precio;
+            frm2.txtImagen.value = productoSeleccionado.imagen;
+            frm2.btnGuardar.innerHTML = "Modificar";
 
 
             editStatus = true;
             idSeleccionado = event.target.dataset.id;
-
+            
 
         });
     });
 
-
+    document.getElementById('btn-limpiar').addEventListener('click', limpiar);
     });
 
 });
 
 
-frm.addEventListener("submit",async(event) =>{
+frm2.addEventListener("submit",async(event) =>{
     event.preventDefault();
     
 
@@ -119,49 +116,30 @@ task.then(snapshot => {
     });
 });
 
-
-
-
-
-
-
-
     //CREAR OBJETO A INSERTAR
     const productoTO = {
-        tipobebida : frm.txtTipoBebida.value,
-        nombre : frm.txtNombre.value,
-        descripcion : frm.txtDescripcion.value,
-        precio : frm.txtPrecio.value,
+        tipobebida : frm2.txtTipoBebida.value,
+        nombre : frm2.txtNombre.value,
+        descripcion : frm2.txtDescripcion.value,
+        cantidad : frm2.txtCantidad.value,
+        precio : frm2.txtPrecio.value,
        
     }
 
     if (editStatus){
 
-        await onUpdate(idSeleccionado, productoTO);
+        await onUpdate2(idSeleccionado, productoTO);
     }else{
-        await onInsert(productoTO);
+        await onInsert2(productoTO);
     }
     limpiar();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 
 function limpiar(){
-    frm.reset();
-    frm.btnGuardar.innerHTML = "Guardar"
-    frm.txtTipoBebida.focus();
+    frm2.reset();
+    frm2.btnGuardar.innerHTML = "Guardar"
+    frm2.txtTipoBebida.focus();
 
     editStatus = false;
     idSeleccionado = "";

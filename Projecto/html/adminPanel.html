@@ -20,7 +20,7 @@
             <!-- Menú de navegación -->
             <ul class="sidebar-menu">
                 <li><a href="javascript:void(0);" onclick="openPanel('Usuarios')">Administrar Usuarios</a></li>
-                <li><a href="javascript:void(0);" onclick="openPanel('Inventario')">Administrar Inventario</a></li>
+                <li><a href="javascript:void(0);" onclick="openPanel('Productos')">Administrar Productos</a></li>
                 <li><a href="javascript:void(0);" onclick="openPanel('pedidos')">Administrar Pedidos</a></li>
                 <li><a href="javascript:void(0);" onclick="logout()">Cerrar Sesión</a></li>
             </ul>
@@ -84,66 +84,53 @@
         </table>
     </div>
             </div>
-                                     <!-- Zona de Inventario -->
-            <div id="Inventario" class="panel-content" style="display: none;">
-                <h2>Registro de Inventario</h2>
-    <form id="registroInventario">
-        <label for="nombre">Nombre del producto:</label>
-        <input type="text" id="nombreProducto" name="nombre" required>
+                                     <!-- Zona de Productos -->
+            <div id="Productos" class="panel-content" style="display: none;">
+                <h2>Registro de Productos</h2>
+    <form id="frm2">
+        <label for="txtTipoBebida">Tipo de bebida:</label>
+        <input type="text" id="txtTipoBebida" placeholder="Tipo Bebida 'Cerveza o Vino'" class="form-control" pattern="Cerveza|Vino" title="Ingrese'Cerveza' o 'Vino'" required>
 
-        <label for="descripcion">descripcion:</label>
-        <input type="text" id="descripcion" name="descripcion" required>
+        <label for="txtNombre">Nombre:</label>
+        <input type="text" id="txtNombre" placeholder="Nombre" class="form-control" required>
 
-        <label for="cantidad">Cantidad:</label>
-        <input type="text" id="cantidad" name="cantidad" required>
+        <label for="txtDescripcion">Descripcion:</label>
+        <input type="text" id="txtDescripcion" placeholder="Descripción" class="form-control" required>
 
-        <label for="categoria">Categoria:</label>
-        <select id="categoria" name="categoria" required></select>
+        <label for="txtCantidad">Cantidad:</label>
+        <input type="text" id="txtCantidad" name="cantidad" placeholder="Cantidad" class="form-control" required>
 
         <label for="imagenProducto">Imagen del producto:</label>
-        <input type="file" id="imagenProducto" name="imagenProducto" accept="image/*" required>
+        <input type="file" id="txtImagen" class="form-control" required> 
 
         <label for="Precio">Precio:</label>
-        <input type="text" id="Precio" name="Precio" min="0" required>
+        <input type="text" id="txtPrecio" placeholder="Precio" class="form-control" pattern="[0-9]+" title="Ingrese un número" required>
 
-        <button type="submit">Enviar Datos</button>
+        <button id="btnGuardar" class="btn btn-primary">Guardar</button>
+        <button id="btn-limpiar" type="button" class="btn btn-success">Limpiar</button>
     </form>
-    <div class="inventario-lista">
+    <div class="Productos-lista">
         <h2>Lista de Productos</h2>
-        <table class="table-lista">
+        <table id="tblDatos2" class="table-lista">
             <thead>
                 <tr>
-                    <th>Nombre del producto</th>
-                    <th>descripcion</th>
-                    <th>Cantidad</th>
-                    <th>Categoria</th>
-                    <th>Imagen del producto</th>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>cantidad</th>
+                    <th>Imagen</th>
                     <th>Precio</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Ejemplo de un registro de inventario -->
-                <tr>
-                    <td>Heineken</td>
-                    <td>quis nostrud lex ea commodo consequat.</td>
-                    <td>34</td>
-                    <td>Cerveza</td>
-                    <td><img style="height: 200px;" src="imagenes/heineken3.jpg"></td>
-                    <td>9$</td>
-                    <td>
-                        <button class="btn btn-eliminar">Eliminar</button>
-                        <button class="btn btn-actualizar">Actualizar</button>
-                    </td>
-                </tr>
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
             </div>
                                     <!-- Zona de pedidos -->        
             <div id="pedidos" class="panel-content" style="display: none;">
                 <h2>pedidos</h2>
-    <form id="registroInventario">
+    <form id="registroProductos">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
@@ -215,7 +202,9 @@
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-storage.js"></script>
     <script src="../javascript/firebase-config.js"></script>
     <script src="../javascript/usuario.js"></script>
+    <script src="../javascript/productos.js"></script>
 </body>
 </html>
