@@ -84,7 +84,8 @@ window.addEventListener("load",async()=>{
         });
     });
 
-    document.getElementById('btn-limpiar').addEventListener('click', limpiar);
+    document.getElementById('btnLimpiarProducto').addEventListener('click', limpiarProducto);
+
     });
 
 });
@@ -132,13 +133,13 @@ task.then(snapshot => {
     }else{
         await onInsert2(productoTO);
     }
-    limpiar();
+    limpiarProducto();
 
 });
 
-function limpiar(){
+function limpiarProducto(){
     frm2.reset();
-    frm2.btnGuardar.innerHTML = "Guardar"
+    document.getElementById("btnGuardar").innerHTML = "Guardar";
     frm2.txtTipoBebida.focus();
 
     editStatus = false;

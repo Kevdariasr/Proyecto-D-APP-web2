@@ -57,12 +57,13 @@
         </div>
 
         <div class="form-group">
-            <input type="text" id="txtPassword" placeholder="Contraseña" class="form-control" pattern="[a-zA-Z0-9]{8}" title="Ingrese una contraseña alfanumérica de 8 dígitos" required>
+            <input type="text" id="txtPassword" placeholder="Contraseña" class="form-control"  required>
         </div>
 
         <br>
-        <button id="btnGuardar" class="btn btn-primary">Guardar</button>
-        <button id="btnLimpiar" type="button" class="btn btn-success">Limpiar</button>
+        <button id="btnGuardarUsuario" class="btn btn-primary">Guardar</button>
+        <button id="btnlimpiarUsuario" type="button" class="btn btn-success">Limpiar</button>
+
     </form>
     <div class="Usuarios-lista">
         <h2>Listado de Usuarios</h2>
@@ -101,13 +102,16 @@
         <input type="text" id="txtCantidad" name="cantidad" placeholder="Cantidad" class="form-control" required>
 
         <label for="imagenProducto">Imagen del producto:</label>
-        <input type="file" id="txtImagen" class="form-control" required> 
+        <input type="file" id="fileInput" accept="image/*">
+        <button id="uploadButton">Subir Imagen</button>
+    
+        <div id="imageList"></div> 
 
         <label for="Precio">Precio:</label>
         <input type="text" id="txtPrecio" placeholder="Precio" class="form-control" pattern="[0-9]+" title="Ingrese un número" required>
 
         <button id="btnGuardar" class="btn btn-primary">Guardar</button>
-        <button id="btn-limpiar" type="button" class="btn btn-success">Limpiar</button>
+        <button id="btnLimpiarProducto" type="button" class="btn btn-success">Limpiar</button>
     </form>
     <div class="Productos-lista">
         <h2>Lista de Productos</h2>

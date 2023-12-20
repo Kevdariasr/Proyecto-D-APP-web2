@@ -102,9 +102,9 @@ window.addEventListener("load",async()=>{
 
 
         });
+        document.getElementById('btnlimpiarUsuario').addEventListener('click', limpiarUsuario);
     });
 
-    
 });
 
 });
@@ -143,25 +143,16 @@ frm.addEventListener("submit",async(event) =>{
                 alert(`Error al registrar el usuario: ${error.message}`);
             });
     }
-    limpiar();
-
-
+    limpiarUsuario();
 });
 
-function limpiar(){
+function limpiarUsuario(){
     frm.reset();
-    frm.btnGuardar.innerHTML = "Guardar"
+    document.getElementById("btnGuardarUsuario").innerHTML = "Guardar";
     frm.txtNombre.focus();
 
     editStatus = false;
     idSeleccionado = "";
 
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const btnLimpiar = document.getElementById('btnLimpiar');
-    btnLimpiar.addEventListener('click', function() {
-        limpiar();
-    });
-});
 
