@@ -13,8 +13,8 @@ body {
     text-align: center;
     padding: 10px 20px;
     display: flex;
-    justify-content: space-between; /* Alinea los elementos horizontalmente */
-    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; 
+    align-items: center; 
   }
   
   .header-img {
@@ -31,7 +31,7 @@ body {
   nav {
     display: flex;
     align-items: center;
-    justify-content: center; /* Añade esta línea para centrar horizontalmente */
+    justify-content: center; 
     flex-grow: 1;
   
   }

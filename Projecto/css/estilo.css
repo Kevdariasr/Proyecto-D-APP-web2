@@ -39,7 +39,7 @@ body{
 .contact_form
 
 .logo {
-  background-image: url('/imagenes/brew.jpg');
+  background-image: url('../images/brew.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   padding-left: 110px; 

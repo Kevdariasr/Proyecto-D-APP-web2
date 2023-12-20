@@ -13,7 +13,7 @@ header {
 .button-container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra horizontalmente */
+    justify-content: center; 
 }
 header a {
     color: white;
