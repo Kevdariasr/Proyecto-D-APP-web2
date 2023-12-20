@@ -62,27 +62,32 @@ window.addEventListener("load",async()=>{
         });
     });
 
-    const btnEditar= document.querySelectorAll(".btn-editar");    
-    btnEditar.forEach ((btn)=>{
-        btn.addEventListener("click", async(event)=>{
-            const docSeleccionado = await findById2(event.target.dataset.id);
+    const btnEditar = document.querySelectorAll(".btn-editar");
+btnEditar.forEach((btn) => {
+    btn.addEventListener("click", async (event) => {
+        const docSeleccionado = await findById2(event.target.dataset.id);
         const productoSeleccionado = docSeleccionado.data();
-            
-            frm2.txtTipoBebida.value = productoSeleccionado.tipobebida;
-            frm2.txtNombre.value = productoSeleccionado.nombre;
-            frm2.txtDescripcion.value = productoSeleccionado.descripcion;
-            frm2.txtCantidad.value = productoSeleccionado.cantidad;
-            frm2.txtPrecio.value = productoSeleccionado.precio;
-            frm2.txtImagen.value = productoSeleccionado.imagen;
-            frm2.btnGuardar.innerHTML = "Modificar";
-
-
-            editStatus = true;
-            idSeleccionado = event.target.dataset.id;
-            
-
-        });
+        
+        frm2.txtTipoBebida.value = productoSeleccionado.tipobebida;
+        frm2.txtNombre.value = productoSeleccionado.nombre;
+        frm2.txtDescripcion.value = productoSeleccionado.descripcion;
+        frm2.txtCantidad.value = productoSeleccionado.cantidad;
+        frm2.txtPrecio.value = productoSeleccionado.precio;
+        
+        const imagenActual = document.getElementById('imagenActual');
+        if (productoSeleccionado.imagenURL) {
+            imagenActual.src = productoSeleccionado.imagenURL;
+            imagenActual.style.display = 'block'; 
+        } else {
+            imagenActual.style.display = 'none'; 
+        
+        frm2.btnGuardar.innerHTML = "Modificar";
+        
+        editStatus = true;
+        idSeleccionado = event.target.dataset.id;
     });
+    });
+    
 
     document.getElementById('btnLimpiarProducto').addEventListener('click', limpiarProducto);
 
@@ -91,51 +96,45 @@ window.addEventListener("load",async()=>{
 });
 
 
-frm2.addEventListener("submit",async(event) =>{
+frm2.addEventListener("submit", async (event) => {
     event.preventDefault();
-    
 
+    const fileInput = document.getElementById('fileInput');
+    if (editStatus) {
+        const productoTO = {
+            tipobebida: frm2.txtTipoBebida.value,
+            nombre: frm2.txtNombre.value,
+            descripcion: frm2.txtDescripcion.value,
+            cantidad: frm2.txtCantidad.value,
+            precio: frm2.txtPrecio.value,
+        };
+        
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const storageRef = firebase.storage().ref(`images/${file.name}`);
+            try {
+                const snapshot = await storageRef.put(file);
+                productoTO.imagenURL = await snapshot.ref.getDownloadURL();
+            } catch (error) {
+                console.error("Error al subir nueva imagen: ", error);
+                alert(`Error al subir nueva imagen: ${error.message}`);
+                return;
+            }
+        }
 
-//FIREBASE STORAGE
-
-// Crear una referencia al almacenamiento
-//var storageRef = firebase.storage().ref();
-
-// Obtener el archivo
-const fileInput = document.getElementById('txtImagen');
-    const file = fileInput.files[0];
-
-// Crear una referencia al archivo que se va a subir
-const storageRef = firebase.storage().ref(`images/${file.name}`);
-
-// Subir la imagen
-const task = storageRef.put(file);
-
-task.then(snapshot => {
-    snapshot.ref.getDownloadURL().then(url => {
-        uploadedImage.src = url;
-    });
-});
-
-    //CREAR OBJETO A INSERTAR
-    const productoTO = {
-        tipobebida : frm2.txtTipoBebida.value,
-        nombre : frm2.txtNombre.value,
-        descripcion : frm2.txtDescripcion.value,
-        cantidad : frm2.txtCantidad.value,
-        precio : frm2.txtPrecio.value,
-       
+        try {
+            await onUpdate2(idSeleccionado, productoTO);
+            alert("Producto actualizado con éxito");
+        } catch (error) {
+            console.error("Error al actualizar el producto: ", error);
+            alert(`Error al actualizar el producto: ${error.message}`);
+        }
+    } else {
     }
 
-    if (editStatus){
-
-        await onUpdate2(idSeleccionado, productoTO);
-    }else{
-        await onInsert2(productoTO);
-    }
     limpiarProducto();
-
 });
+
 
 function limpiarProducto(){
     frm2.reset();

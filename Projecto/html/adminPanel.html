@@ -90,25 +90,25 @@
                 <h2>Registro de Productos</h2>
     <form id="frm2">
         <label for="txtTipoBebida">Tipo de bebida:</label>
-        <input type="text" id="txtTipoBebida" placeholder="Tipo Bebida 'Cerveza o Vino'" class="form-control" pattern="Cerveza|Vino" title="Ingrese'Cerveza' o 'Vino'" required>
+        <input type="text" id="txtTipoBebida" placeholder="Tipo Bebida 'Cerveza o Vino'" class="form-control" pattern="Cerveza|Vino" title="Ingrese'Cerveza' o 'Vino'" >
 
         <label for="txtNombre">Nombre:</label>
-        <input type="text" id="txtNombre" placeholder="Nombre" class="form-control" required>
+        <input type="text" id="txtNombre" placeholder="Nombre" class="form-control" >
 
         <label for="txtDescripcion">Descripcion:</label>
-        <input type="text" id="txtDescripcion" placeholder="Descripción" class="form-control" required>
+        <input type="text" id="txtDescripcion" placeholder="Descripción" class="form-control" >
 
         <label for="txtCantidad">Cantidad:</label>
-        <input type="text" id="txtCantidad" name="cantidad" placeholder="Cantidad" class="form-control" required>
+        <input type="text" id="txtCantidad" name="cantidad" placeholder="Cantidad" class="form-control" >
 
         <label for="imagenProducto">Imagen del producto:</label>
+        <img id="imagenActual" src="#" alt="Imagen Actual" style="display:none; max-width: 100px; max-height: 80px;">
         <input type="file" id="fileInput" accept="image/*">
-        <button id="uploadButton">Subir Imagen</button>
     
         <div id="imageList"></div> 
 
         <label for="Precio">Precio:</label>
-        <input type="text" id="txtPrecio" placeholder="Precio" class="form-control" pattern="[0-9]+" title="Ingrese un número" required>
+        <input type="text" id="txtPrecio" placeholder="Precio" class="form-control" pattern="[0-9]+" title="Ingrese un número" >
 
         <button id="btnGuardar" class="btn btn-primary">Guardar</button>
         <button id="btnLimpiarProducto" type="button" class="btn btn-success">Limpiar</button>
