@@ -11,3 +11,10 @@ function openPanel(panelId) {
   
     event.currentTarget.classList.add('active');
 };
+
+
+// Función para cerrar sesión
+function cerrarSesion() {
+    window.location.href = 'index.html'; 
+}
+
