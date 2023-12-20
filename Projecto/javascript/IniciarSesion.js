@@ -31,5 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Ocurrió un error: ${error.message}`);
         });
     });
+
+    const resetPasswordLink = document.getElementById('reset-password');
+    resetPasswordLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        var email = document.getElementById('email').value;
+
+        // Verificar que el campo de email no esté vacío
+        if (email) {
+            firebase.auth().sendPasswordResetEmail(email)
+            .then(function() {
+                alert('Se ha enviado un correo electrónico para restablecer tu contraseña.');
+            }).catch(function(error) {
+                console.error("Error: ", error);
+                alert(`Ocurrió un error: ${error.message}`);
+            });
+        } else {
+            alert('Por favor, ingresa tu correo electrónico en el campo de email.');
+        }
+    });
 });
 
