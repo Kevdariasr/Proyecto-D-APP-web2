@@ -27,73 +27,68 @@ const onUpdate2 = (paramId, newObj) => db.collection(coleccionStr2).doc(paramId)
 const onDelete2 = paramId => db.collection(coleccionStr2).doc(paramId).delete();
 
 // 4. CREACION DE CRUD
-window.addEventListener("load",async()=>{
-    onfindAll2((query)=>{
-        
-        dataTable2.innerHTML = "";
-        
-        query.forEach((doc)=>{
-            let dato =  doc.data();
+window.addEventListener("load", async () => {
+    const querySnapshot = await onfindAll2();
+    let rows = '';
+    
+    querySnapshot.forEach((doc) => {
+        let dato = doc.data();
+        rows += `
+            <tr>
+                <td>${dato.tipobebida}</td>
+                <td>${dato.nombre}</td>
+                <td>${dato.descripcion}</td>
+                <td>${dato.cantidad}</td>
+                <td><img src="${dato.imagenURL}" style="max-width: 100px; max-height: 80px;" alt="Imagen"></td>
+                <td>${dato.precio}</td>
+                <td class="text-center">
+                    <button class="btn btn-secondary btn-editar" data-id="${doc.id}">Editar</button>
+                    <button class="btn btn-danger btn-borrar" data-id="${doc.id}">Borrar</button>
+                </td>
+            </tr>`;
+    });
 
-            dataTable2.innerHTML += `
-                                    <tr>
-                                        <td>${dato.tipobebida}</td>
-                                        <td>${dato.nombre}</td>
-                                        <td>${dato.descripcion}</td>
-                                        <td>${dato.cantidad}</td>
-                                        <td><img src="${dato.imagenURL}" style="max-width: 100px; max-height: 80px;" alt="Imagen"></td>
-                                        <td>${dato.precio}</td>
-                                        <td class="text-center">
-                                        <button class="btn btn-secondary btn-editar" data-id="${doc.id}">Editar</button>
-                                        <button class="btn btn-danger btn-borrar" data-id="${doc.id}">Borrar</button>
-                                        </td>
-                                    </tr>            
-                                    `;
-        });
+    dataTable2.innerHTML = rows;
 
-
-    const btnBorrar = document.querySelectorAll(".btn-borrar");    
-    btnBorrar.forEach ((btn)=>{
-        btn.addEventListener("click", async(event)=>{
-            if(confirm("Desea eliminar el registro?")){
+    document.querySelectorAll(".btn-borrar").forEach((btn) => {
+        btn.addEventListener("click", async (event) => {
+            if (confirm("Desea eliminar el registro?")) {
                 await onDelete2(event.target.dataset.id);
             }
-            
         });
     });
 
-    const btnEditar = document.querySelectorAll(".btn-editar");
-btnEditar.forEach((btn) => {
-    btn.addEventListener("click", async (event) => {
-        const docSeleccionado = await findById2(event.target.dataset.id);
-        const productoSeleccionado = docSeleccionado.data();
-        
-        frm2.txtTipoBebida.value = productoSeleccionado.tipobebida;
-        frm2.txtNombre.value = productoSeleccionado.nombre;
-        frm2.txtDescripcion.value = productoSeleccionado.descripcion;
-        frm2.txtCantidad.value = productoSeleccionado.cantidad;
-        frm2.txtPrecio.value = productoSeleccionado.precio;
-        
-        const imagenActual = document.getElementById('imagenActual');
-        if (productoSeleccionado.imagenURL) {
-            imagenActual.src = productoSeleccionado.imagenURL;
-            imagenActual.style.display = 'block'; 
-        } else {
-            imagenActual.style.display = 'none'; 
-        
-        frm2.btnGuardar.innerHTML = "Modificar";
-        
-        editStatus = true;
-        idSeleccionado = event.target.dataset.id;
+    document.querySelectorAll(".btn-editar").forEach((btn) => {
+        btn.addEventListener("click", async (event) => {
+            const docId = event.target.dataset.id;
+            const docRef = db.collection(coleccionStr2).doc(docId);
+            const doc = await docRef.get();
+            const productoSeleccionado = doc.data();
+
+            frm2.txtTipoBebida.value = productoSeleccionado.tipobebida;
+            frm2.txtNombre.value = productoSeleccionado.nombre;
+            frm2.txtDescripcion.value = productoSeleccionado.descripcion;
+            frm2.txtCantidad.value = productoSeleccionado.cantidad;
+            frm2.txtPrecio.value = productoSeleccionado.precio;
+            
+            const imagenActual = document.getElementById('imagenActual');
+            if (productoSeleccionado.imagenURL) {
+                imagenActual.src = productoSeleccionado.imagenURL;
+                imagenActual.style.display = 'block'; 
+            } else {
+                imagenActual.style.display = 'none';
+            }
+            
+            frm2.btnGuardar.innerHTML = "Modificar";
+            
+            editStatus = true;
+            idSeleccionado = docId;
+        });
     });
-    });
-    
 
     document.getElementById('btnLimpiarProducto').addEventListener('click', limpiarProducto);
-
-    });
-
 });
+
 
 
 frm2.addEventListener("submit", async (event) => {
