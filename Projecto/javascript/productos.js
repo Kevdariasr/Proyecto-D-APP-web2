@@ -28,6 +28,8 @@ const onDelete2 = paramId => db.collection(coleccionStr2).doc(paramId).delete();
 
 // 4. CREACION DE CRUD
 window.addEventListener("load", () => {
+
+    /* PARTE DE CRUD PRODUCTOS */
     onfindAll2((querySnapshot) => {
         let rows = '';
         
@@ -92,8 +94,71 @@ function addEventListeners() {
     });
 
     document.getElementById('btnLimpiarProducto').addEventListener('click', limpiarProducto);
-
 }
+
+window.addEventListener("load", async () => {
+    const productPanelsContainer = document.getElementById("productPanels");
+
+    // Función para mostrar los productos según el tipo de bebida y la búsqueda por nombre
+    function showProductsByTypeAndName(selectedType, searchQuery) {
+        onfindAll2((query) => {
+            productPanelsContainer.innerHTML = "";
+
+            query.forEach((doc) => {
+                let dato = doc.data();
+                const tipoBebidaLower = dato.tipobebida.toLowerCase();
+                const nombreLower = dato.nombre.toLowerCase();
+
+                if ((selectedType === "all" || selectedType.toLowerCase() === tipoBebidaLower) &&
+                    (searchQuery === "" || nombreLower.includes(searchQuery.toLowerCase()))) {
+
+                    const productPanel = document.createElement("div");
+                    productPanel.classList.add("product-panel");
+
+                    productPanel.innerHTML = `
+                        <img src="${dato.imagenURL}" alt="${dato.nombre}" class="product-image">
+                        <div class="product-details">
+                            <h2>${dato.nombre}</h2>
+                            <div class="price-container">
+                                <p class="description">${dato.descripcion}</p>
+                                <p class="price">₡${dato.precio}</p>
+                                <p class="tipo">${dato.tipobebida}</p>
+                            </div>
+                            <div class="cart-container">
+                                <span class="cart-counter">1</span>
+                                <button class="add-to-cart-button" data-id="${doc.id}">Agregar al Carrito</button>
+                            </div>
+                        </div>
+                    `;
+
+                    productPanelsContainer.appendChild(productPanel);
+
+                    const addToCartButton = productPanel.querySelector(".add-to-cart-button");
+                    addToCartButton.addEventListener("click", async (event) => {
+                        const productId = event.target.dataset.id;
+                        // Lógica para agregar al carrito según el ID
+                    });
+                }
+            });
+        });
+    }
+
+    // Evento para cambiar la vista según el tipo de bebida seleccionado
+    document.getElementById("viewSelector").addEventListener("change", function () {
+        var selectedValue = this.value;
+        showProductsByTypeAndName(selectedValue, document.getElementById("searchInput").value);
+    });
+
+    // Evento para buscar productos por nombre
+    document.getElementById("searchInput").addEventListener("input", function () {
+        var searchQuery = this.value;
+        var selectedType = document.getElementById("viewSelector").value;
+        showProductsByTypeAndName(selectedType, searchQuery);
+    });
+
+    // Mostrar todos los productos al cargar la página
+    showProductsByTypeAndName("all", "");
+}); 
 
 
 frm2.addEventListener("submit", async (event) => {

@@ -81,27 +81,26 @@ window.addEventListener("load",async()=>{
         });
         
 
-    const btnEditar= document.querySelectorAll(".btn-editar");    
-    btnEditar.forEach ((btn)=>{
-        btn.addEventListener("click", async(event)=>{
-            const docSelecccionado = await findById(event.target.dataset.id);
-            const usuarioSeleccionado = docSelecccionado.data();
-            
-            frm.txtNombre.value = usuarioSeleccionado.nombre;
-            frm.txtApellidos.value = usuarioSeleccionado.apellidos;
-            frm.txtEmail.value = usuarioSeleccionado.email;
-            frm.txtTelefono.value = usuarioSeleccionado.telefono;
-            frm.txtRole.value = usuarioSeleccionado.role;
-            frm.txtDireccion.value = usuarioSeleccionado.direccion;
-            frm.txtPassword.value = usuarioSeleccionado.password;
-            frm.btnGuardar.innerHTML = "Modificar";
-
-
-            editStatus = true;
-            idSeleccionado = event.target.dataset.id;
-
-
-        });
+        const btnEditar = document.querySelectorAll(".btn-editar");    
+        btnEditar.forEach((btn) => {
+            btn.addEventListener("click", async (event) => {
+                const docId = event.target.dataset.id;
+                const docRef = db.collection(coleccionStr).doc(docId);
+                const doc = await docRef.get();
+                const usuarioSeleccionado = doc.data();
+                
+                frm.txtNombre.value = usuarioSeleccionado.nombre;
+                frm.txtApellidos.value = usuarioSeleccionado.apellidos;
+                frm.txtEmail.value = usuarioSeleccionado.email;
+                frm.txtTelefono.value = usuarioSeleccionado.telefono;
+                frm.txtRole.value = usuarioSeleccionado.role;
+                frm.txtDireccion.value = usuarioSeleccionado.direccion;
+                frm.txtPassword.value = usuarioSeleccionado.password;
+                document.getElementById("btnGuardarUsuario").innerHTML = "Modificar";
+        
+                editStatus = true;
+                idSeleccionado = docId;
+            });
         document.getElementById('btnlimpiarUsuario').addEventListener('click', limpiarUsuario);
     });
 
@@ -110,39 +109,34 @@ window.addEventListener("load",async()=>{
 });
 
 
-frm.addEventListener("submit",async(event) =>{
+frm.addEventListener("submit", async (event) => {
     event.preventDefault();
     
-    //CREAR OBJETO A INSERTAR
     const usuarioTO = {
-        nombre : frm.txtNombre.value,
-        apellidos : frm.txtApellidos.value,
-        email : frm.txtEmail.value,
-        telefono : frm.txtTelefono.value,
-        role : frm.txtRole.value,
-        direccion : frm.txtDireccion.value,
-        password : frm.txtPassword.value
-    }
+        nombre: frm.txtNombre.value,
+        apellidos: frm.txtApellidos.value,
+        email: frm.txtEmail.value,
+        telefono: frm.txtTelefono.value,
+        role: frm.txtRole.value,
+        direccion: frm.txtDireccion.value,
+        password: frm.txtPassword.value
+    };
 
-    if (editStatus){
-
+    if (editStatus) {
         await onUpdate(idSeleccionado, usuarioTO);
-    }else{
-        firebase.auth().createUserWithEmailAndPassword(usuarioTO.email, usuarioTO.password)
-            .then((userCredential) => {
-                return onInsert({
-                    ...usuarioTO,
-                    uid: userCredential.user.uid
-                });
-            })
-            .then(() => {
-                alert("Usuario registrado con éxito");
-            })
-            .catch((error) => {
-                console.error("Error al crear el usuario en Auth: ", error);
-                alert(`Error al registrar el usuario: ${error.message}`);
+    } else {
+        try {
+            const userCredential = await firebase.auth().createUserWithEmailAndPassword(usuarioTO.email, usuarioTO.password);
+            await onInsert({
+                ...usuarioTO,
+                uid: userCredential.user.uid
             });
+        } catch (error) {
+            console.error("Error al crear el usuario en Auth: ", error);
+            alert(`Error al registrar el usuario: ${error.message}`);
+        }
     }
+
     limpiarUsuario();
 });
 
